@@ -10,9 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify/json": "^2.2.196",
     "@nuxt/ui": "^2.14.2",
+    "date-fns": "^2.30.0",
     "nuxt": "^3.11.1",
+    "v-calendar": "^3.1.2",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "yup": "^1.4.0"
   }
 }

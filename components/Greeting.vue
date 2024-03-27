@@ -1,28 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-
-const items = [
-  'https://picsum.photos/1920/1080?random=1',
-  'https://picsum.photos/1920/1080?random=2',
-  'https://picsum.photos/1920/1080?random=3',
-  'https://picsum.photos/1920/1080?random=4',
-  'https://picsum.photos/1920/1080?random=5',
-  'https://picsum.photos/1920/1080?random=6'
-]
-
-const carouselRef = ref()
-
-onMounted(() => {
-  setInterval(() => {
-    if (!carouselRef.value) return
-
-    if (carouselRef.value.page === carouselRef.value.pages) {
-      return carouselRef.value.select(0)
-    }
-
-    carouselRef.value.next()
-  }, 3000)
-})
+import { ref } from 'vue';
 
 const isOpen = ref(true)
 </script>
@@ -33,17 +10,19 @@ const isOpen = ref(true)
       <div class="flex min-h-full items-end sm:items-center justify-center text-center">
         <UCard class="p-4 sm:p-0 sm:my-8 min-w-96">
           <div>
-            <img src="/paw_print.png"
-              class="size-24 z-40 mx-auto shadow-2xl dark:shadow-lg shadow-black dark:shadow-gray-400 ring-1.5 ring-gray-200 rounded-full">
+            <a href='/'>
+              <img src="/paw_print.png"
+                class="size-24 z-40 mx-auto shadow-lg dark:shadow-lg shadow-gray-400 dark:shadow-gray-400 ring-1.5 ring-gray-200 rounded-full">
+            </a>
             <h1 class="font-semibold text-3xl font-mono text-center py-4">Pet Date</h1>
-            <UButton class="w-42 justify-center text-lg font-bold" to="/account">Find your match!</UButton>
+            <UButton class="w-60 justify-center text-lg font-bold rounded-full" to="/account">Find your match!</UButton>
+            <p class="pt-4">Already have an account? <a
+                class="text-blue-500 hover:text-blue-500 hover:underline hover:cursor-pointer" href="/login">Log In!</a>
+            </p>
           </div>
         </UCard>
       </div>
     </div>
   </div>
-  <UCarousel ref="carouselRef" v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }"
-    class="overflow-hidden h-screen">
-    <img :src="item" class="w-full" draggable="false">
-  </UCarousel>
+  <Carousel />
 </template>
