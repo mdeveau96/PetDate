@@ -1,0 +1,56 @@
+name: Deploy to Amplify
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    strategy: 
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Install Node version ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Dependencies and run
+      run: |
+        npm install
+        npm run dev
+
+  Test:
+    runs-on: ubuntu-latest
+    needs: Build
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Run Tests
+      run: npm run test
+
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: [Build, Test]
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Install Amplify CLI
+      run: npm install -g @aws-amplify/cli
+
+    - name: Configure Amplify
+      run: amplify configure
+
+    - name: Deploy to Amplify
+      run: amplify publish

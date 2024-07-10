@@ -6,6 +6,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxt/ui',
+    '@samk-dev/nuxt-vcalendar',
+    '@nuxt/test-utils/module'
   ],
   css: ['~/assets/css/main.css'],
   postcss: {

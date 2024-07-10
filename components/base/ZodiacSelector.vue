@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const sign = defineModel()
 
 const zodiacSigns = [{
     label: 'Aries',
@@ -51,13 +50,17 @@ const zodiacSigns = [{
     value: 'pisces'
 }]
 
+const emit = defineEmits(['selectedZodiac'])
 const selected = ref(zodiacSigns[0])
 </script>
 
 <template>
-    <USelectMenu v-model="selected" :options="zodiacSigns" class="font-bold">
-        <template #leading>
-            <UIcon v-if="selected.icon" :name="(selected.icon as string)" class="w-5 h-5 text-rose-500 dark:text-rose-300"/>
-        </template>
-    </USelectMenu>
+    <div>
+        <h3 class="font-bold py-2">What is your sign?</h3>
+        <USelectMenu v-model="selected" :options="zodiacSigns" class="font-bold" @click="$emit('selectedZodiac', selected.value)">
+            <template #leading>
+                <UIcon v-if="selected.icon" :name="(selected.icon as string)" class="w-5 h-5 text-rose-500 dark:text-rose-300"/>
+            </template>
+        </USelectMenu>
+    </div>
 </template>

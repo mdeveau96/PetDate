@@ -7,16 +7,31 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest run"
   },
   "dependencies": {
     "@iconify/json": "^2.2.196",
     "@nuxt/ui": "^2.14.2",
+    "aws-amplify": "^6.4.0",
     "date-fns": "^2.30.0",
     "nuxt": "^3.11.1",
     "v-calendar": "^3.1.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.0.4",
+    "@aws-amplify/backend-cli": "^1.1.0",
+    "@nuxt/test-utils": "^3.13.1",
+    "@samk-dev/nuxt-vcalendar": "^1.0.3",
+    "aws-cdk": "^2.148.0",
+    "aws-cdk-lib": "^2.148.0",
+    "constructs": "^10.3.0",
+    "esbuild": "^0.23.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.2"
   }
 }

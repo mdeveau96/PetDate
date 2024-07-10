@@ -9,6 +9,10 @@ const schema = object({
         .required('Required')
 })
 
+const forgottenSchema = object({
+    email: string().email('Invalid email').required('Required')
+})
+
 type Schema = InferType<typeof schema>
 
 const state = reactive({
@@ -54,12 +58,15 @@ const isOpen = ref(false)
                 </div>
                 <h1 class="font-lg text-center py-2">Reset your password</h1>
                 <UCard>
-                    <UForm>
+                    <UForm :schema="forgottenSchema" class="space-y-4" @submit="onSubmit">
                         <UFormGroup
                             label="Enter your user account's verified email address and we will send you a password reset link."
                             name="email">
                             <UInput v-model="state.email" placeholder="Enter your email" />
                         </UFormGroup>
+                        <UButton type="submit" class="rounded-full w-full justify-center">
+                            Submit
+                        </UButton>
                     </UForm>
                 </UCard>
             </div>
