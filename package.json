@@ -24,7 +24,6 @@
   "devDependencies": {
     "@aws-amplify/backend": "^1.0.4",
     "@aws-amplify/backend-cli": "^1.1.0",
-    "@nuxt/test-utils": "^3.13.1",
     "@samk-dev/nuxt-vcalendar": "^1.0.3",
     "aws-cdk": "^2.148.0",
     "aws-cdk-lib": "^2.148.0",

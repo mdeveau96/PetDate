@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@samk-dev/nuxt-vcalendar',
-    '@nuxt/test-utils/module'
+    //'@nuxt/test-utils/module'
   ],
   css: ['~/assets/css/main.css'],
   postcss: {
