@@ -5,6 +5,7 @@ backend:
       commands:
         - nvm use 18 && node --version
         - corepack enable && npx --yes nypm install
+        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
     build:
       commands:
         - pnpm build
