@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-furevamatch-dev-f40e0-authRole",
+      "UnauthRoleArn": "arn:aws:iam::042211796237:role/amplify-furevamatch-dev-f40e0-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::042211796237:role/amplify-furevamatch-dev-f40e0-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-furevamatch-dev-f40e0-deployment",
+      "UnauthRoleName": "amplify-furevamatch-dev-f40e0-unauthRole",
+      "StackName": "amplify-furevamatch-dev-f40e0",
+      "StackId": "arn:aws:cloudformation:us-east-1:042211796237:stack/amplify-furevamatch-dev-f40e0/2b01ed60-5143-11ef-991f-1297bead6283",
+      "AmplifyAppId": "d3e49q2tfmxvcr"
+    }
+  }
+}

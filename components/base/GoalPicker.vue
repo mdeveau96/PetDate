@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const goal = defineModel()
 const statuses = [{
-    label: 'Relationship',
+    label: 'A Relationship',
     icon: 'i-twemoji-couple-with-heart',
     value: 'relationship'
 }, {
-    label: 'Casual',
+    label: 'Something Casual',
     icon: 'i-twemoji-man-and-woman-holding-hands',
     value: 'casual'
 }, {
@@ -25,10 +25,18 @@ const emit = defineEmits(['selectedGoal'])
 <template>
     <div>
         <h2 class="font-bold pb-2">What are you looking for?</h2>
-        <div class="grid grid-cols-1 gap-y-4">
-            <UButton v-for="status in statuses" v-model="goal" :label="status.label" :value="status.value" :icon="status.icon" 
-                class="p-3 gap-x-3 bg-rose-400 dark:bg-rose-400 hover:bg-rose-500 dark:hover:bg-rose-500 focus:bg-rose-600 dark:focus:bg-rose-600"
-                @click="$emit('selectedGoal', status.value)"/>
+        <div>
+            <ul class="inline-flex justify-center grid grid-cols-1 gap-y-4">
+                <li v-for="status in statuses">
+                    <input type="radio" :id="status.label" :value="status.value" name="goal" class="peer hidden" @click="$emit('selectedGoal', status)">
+                    <label :for="status.label" class="block w-full p-2 transition duration-300 hover:bg-rose-500 dark:hover:bg-rose-500 hover:text-white hover:border-rose-500 dark:hover:border-rose-500 border-2 border-rose-400 cursor-pointer rounded-full font-bold peer-checked:text-white peer-checked:bg-rose-500 peer-checked:border-rose-500 text-rose-400 dark:text-white bg-transparent dark:bg-transparent">
+                        <span>
+                            <UIcon :name="status.icon"/>
+                            {{ status.label }}
+                        </span>
+                    </label>
+                </li>
+            </ul>
         </div>
     </div>
 </template>

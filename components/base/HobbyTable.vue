@@ -62,13 +62,20 @@ const hobbies = [{
   value:'Traveling'
 }]
 
-const emit = defineEmits(['selectedHobbie'])
+const emit = defineEmits(['update:hobbie-value', 'remove:hobbie-value'])
 
 </script>
 
 <template>
-  <div class="grid grid-cols-5 gap-3">
-    <UButton v-for="hobbie in hobbies" :label="hobbie.label" :icon="hobbie.icon" @click="$emit('selectedHobbie', hobbie.label)"
-      class="rounded-full bg-rose-400 dark:bg-rose-400 hover:bg-rose-500 dark:hover:bg-rose-500 focus:bg-rose-600 dark:focus:bg-rose-600"/>
+  <div>
+    <ul class="py-3 grid grid-cols-5">
+      <li v-for="hobbie in hobbies">
+        <input type="checkbox" :id="hobbie.label" :value="hobbie.value" name="interest" class="peer hidden" @click="$emit('update:hobbie-value', hobbie.value)" @dblclick="$emit('remove:hobbie-value', hobbie.value)">
+        <label :for="hobbie.label" class="inline-flex mx-2 p-1.5 transition duration-300 hover:bg-rose-500 dark:hover:bg-rose-500 hover:text-white dark:hover:text-white border-2 border-rose-400 hover:border-rose-500 dark:hover:border-rose-500 cursor-pointer rounded-full font-bold peer-checked:bg-rose-500 peer-checked:border-rose-500 peer-checked:text-white text-rose-400 dark:text-white bg-transparent dark:bg-transparent">
+            <UIcon :name="hobbie.icon" class="w-5 h-5"/>
+            <p class="mx-2">{{ hobbie.label }}</p>
+        </label>
+      </li>
+    </ul>
   </div>
 </template>

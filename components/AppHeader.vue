@@ -1,4 +1,10 @@
 <script setup lang="ts">
+// import { Authenticator } from '@aws-amplify/ui-vue'
+// import "@aws-amplify/ui-vue/styles.css"
+// import { Amplify } from 'aws-amplify'
+// import outputs from '../amplify_outputs.json'
+
+// Amplify.configure(outputs)
 const route = useRoute()
 
 const links = [
@@ -24,6 +30,15 @@ const links = [
         <h1 class="pl-2">Date</h1>
       </div>
     </a>
+    <!-- <Authenticator>
+      <template v-slot="{ user, signOut }">
+        <UHorizontalNavigation :links="links" class="px-2">
+          <template #default="{ link }">
+            <span class="group-hover:text-black dark:group-hover:text-rose-400 text-white relative" @click="signOut">{{ link.label }}</span>
+          </template>
+        </UHorizontalNavigation>
+      </template>
+    </Authenticator> -->
     <UHorizontalNavigation :links="links" class="px-2">
       <template #default="{ link }">
         <span class="group-hover:text-black dark:group-hover:text-rose-400 text-white relative">{{ link.label }}</span>

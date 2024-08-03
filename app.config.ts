@@ -3,7 +3,7 @@ export default defineAppConfig({
     theme: {
         colors: {
             primary: '#ff0000',
-            rose: "#FB7185"
+            rose: '#FB7185',
         }
     },
     ui: {

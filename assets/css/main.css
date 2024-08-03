@@ -5,3 +5,6 @@
 .light {
     background-color: rgb(243 244 246);
 }
+.interests input:checked + span {
+    background-color: #f43f5e;
+}
