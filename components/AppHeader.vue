@@ -1,19 +1,8 @@
 <script setup lang="ts">
-// import { Authenticator } from '@aws-amplify/ui-vue'
-// import "@aws-amplify/ui-vue/styles.css"
-// import { Amplify } from 'aws-amplify'
-// import outputs from '../amplify_outputs.json'
+import { Authenticator, useAuthenticator } from '@aws-amplify/ui-vue'
+const auth = useAuthenticator()
 
-// Amplify.configure(outputs)
 const route = useRoute()
-
-const links = [
-  [],
-  [{
-    label: 'Sign Out',
-    // to: '/signout'
-  }]
-]
 </script>
 
 <template>
@@ -30,18 +19,14 @@ const links = [
         <h1 class="pl-2">Date</h1>
       </div>
     </a>
-    <!-- <Authenticator>
-      <template v-slot="{ user, signOut }">
-        <UHorizontalNavigation :links="links" class="px-2">
-          <template #default="{ link }">
-            <span class="group-hover:text-black dark:group-hover:text-rose-400 text-white relative" @click="signOut">{{ link.label }}</span>
-          </template>
-        </UHorizontalNavigation>
+    <authenticator/>
+    <UHorizontalNavigation class="px-2">
+      <template v-if="auth.authStatus === 'authenticated'">
+        <!-- Add user avatar here when signed out -->
+        <span class="group-hover:text-black dark:group-hover:text-rose-400 text-white relative">Sign Out</span>
       </template>
-    </Authenticator> -->
-    <UHorizontalNavigation :links="links" class="px-2">
-      <template #default="{ link }">
-        <span class="group-hover:text-black dark:group-hover:text-rose-400 text-white relative">{{ link.label }}</span>
+      <template v-if="auth.route === 'unauthenticated'">
+        <span class="group-hover:text-black dark:group-hover:text-rose-400 text-white relative">Sign In</span>
       </template>
     </UHorizontalNavigation>
   </div>

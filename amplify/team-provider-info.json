@@ -10,6 +10,13 @@
       "StackName": "amplify-furevamatch-dev-f40e0",
       "StackId": "arn:aws:cloudformation:us-east-1:042211796237:stack/amplify-furevamatch-dev-f40e0/2b01ed60-5143-11ef-991f-1297bead6283",
       "AmplifyAppId": "d3e49q2tfmxvcr"
+    },
+    "categories": {
+      "auth": {
+        "furevamatch9dfc5c5c": {},
+        "furevamatch99c12b19": {},
+        "furevamatch02edd2d8": {}
+      }
     }
   }
 }
