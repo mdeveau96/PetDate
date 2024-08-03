@@ -19,7 +19,7 @@ const route = useRoute()
         <h1 class="pl-2">Date</h1>
       </div>
     </a>
-    <authenticator/>
+    <Authenticator/>
     <UHorizontalNavigation class="px-2">
       <template v-if="auth.authStatus === 'authenticated'">
         <!-- Add user avatar here when signed out -->
